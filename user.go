@@ -39,7 +39,7 @@ func (u *User) Present() map[string]interface{} {
 }
 
 func (u *User) HasAccessToAccount(id uuid.UUID) bool {
-	if u.Level == USER_LEVEL_ADMIN {
+	if u.Level >= USER_LEVEL_ADMIN {
 		return true
 	}
 	for _, account := range u.Accounts {
