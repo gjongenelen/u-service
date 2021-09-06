@@ -98,5 +98,8 @@ func (m *Manager) PrivateHandler(apiHandler EndpointHandler) {
 }
 
 func (m *Manager) Listen() error {
-	return m.echo.Start(":80")
+	return m.ListenOnPort(":80")
+}
+func (m *Manager) ListenOnPort(port string) error {
+	return m.echo.Start(port)
 }
